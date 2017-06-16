@@ -1,0 +1,19 @@
+env:  
+  global:
+    - secure: "KXAoKiKdLDfigeNmCwK9nxzkDr2DP1sttTonqhn9ZtT7RF3TstoTwgLh0MS28doy4VC0hN8mn6TlbfjOpbGn1GbVJqiUw/m4ZRnO9sX/MF1BA6mXHXZp10AAvG/u5wVfTl9bN3ePzM4Ihy70d1u1cxgVZ9kiVtWu02MYUL0udg2VLNV4dNVFN39RveaExNrsaqVkBOIxXFgt0L4q4ZDVdZxSTj55H0dwZXA5e2vYfqNDhUtLszB+DVpQPon62Th16hQgIzjhi+FMSlr9ZrjZlVhahf96eIcEdHTdl0ivaaBMi1HouteXckpT3C+XqChIuGmv2JhA57818oY+l85JnLOUMOVXi6jBf+KOthFFWNqU20Qy8B+BrCw28CzljeXtUzZtG0mxAsOpCKZDgD+meu7hc/+zVG+9nMbf4eJonbMNR2LQkoc001UYS6i7361SOzwVPSICiMoepdz/XpXiANddT8tV8NAFoGVXTNCTZC96zJCB792PIxcYXn69d29Lef7mHA+wa07+8tdbPuvBKdwWd9siQF4CB+CysiLsQbhuxee763sarG6CeFShrLpVRgVUyqmZhR/COhErl7Q5WszxHhRJaxWBAMapKlCAH+ppiqOSvdDQzdlFRv1kgMqu0A4jaEK6y5ahn3lP/wuq9BKFNCQGPH0jq5d4gZEZpgU="
+    - GIT_DEPLOY_DIR=public
+    - GIT_DEPLOY_BRANCH=master
+    - GIT_DEPLOY_USERNAME="tufak"
+    - GIT_DEPLOY_EMAIL=tufak064@gmail.com
+
+branches:
+  only:
+    - source
+
+install:  
+  - rm -rf public || exit 0
+script:  
+  - binaries/hugo
+after_success:  
+  - cp .travis.yml public
+  - bash deploy.sh
