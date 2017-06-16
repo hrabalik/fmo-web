@@ -1,3 +1,5 @@
+Beware: data files (videos, ZIPs, PDFs) are not part of this repository.
+
 How to change page content:
 - Edit the files in the `content` directory
 
